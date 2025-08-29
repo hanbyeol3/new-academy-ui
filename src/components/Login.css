@@ -1,0 +1,358 @@
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--c-bg) 0%, var(--c-accent-light) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 450px;
+}
+
+.login-card {
+  background: var(--c-white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  border: 1px solid var(--c-line);
+}
+
+.login-header {
+  padding: 2rem 2rem 1rem;
+  text-align: center;
+  background: var(--c-bg);
+  position: relative;
+}
+
+.back-button {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--c-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.back-button:hover {
+  color: var(--c-primary);
+  transform: translateX(-2px);
+}
+
+.login-logo {
+  margin-bottom: 1rem;
+}
+
+.login-logo img {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.login-header h1 {
+  margin: 0 0 0.5rem;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--c-primary);
+}
+
+.login-header p {
+  margin: 0;
+  color: var(--c-muted);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.login-form {
+  padding: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+  color: var(--c-text);
+  font-size: 0.9rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 2px solid var(--c-line);
+  border-radius: var(--border-radius-sm);
+  font-size: 1rem;
+  transition: var(--transition);
+  background: var(--c-white);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--c-primary);
+  box-shadow: 0 0 0 3px rgba(44, 62, 80, 0.1);
+}
+
+.form-group input.error {
+  border-color: #e74c3c;
+}
+
+.form-group input.error:focus {
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+}
+
+.error-message {
+  display: block;
+  margin-top: 0.5rem;
+  color: #e74c3c;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--c-text);
+  user-select: none;
+}
+
+.checkbox-container input[type="checkbox"] {
+  display: none;
+}
+
+.checkmark {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--c-line);
+  border-radius: 4px;
+  position: relative;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.checkmark::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border: 2px solid var(--c-white);
+  border-left: none;
+  border-top: none;
+  transform: rotate(45deg) scale(0);
+  transition: var(--transition);
+}
+
+.checkbox-container input:checked + .checkmark {
+  background: var(--c-primary);
+  border-color: var(--c-primary);
+}
+
+.checkbox-container input:checked + .checkmark::after {
+  transform: rotate(45deg) scale(1);
+}
+
+.forgot-link {
+  color: var(--c-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.forgot-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.login-button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: var(--border-radius-sm);
+  margin-bottom: 1.5rem;
+}
+
+.divider {
+  text-align: center;
+  margin: 1.5rem 0;
+  position: relative;
+  color: var(--c-muted);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--c-line);
+  z-index: 1;
+}
+
+.divider span {
+  background: var(--c-white);
+  padding: 0 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.social-login {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.social-btn {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid var(--c-line);
+  background: var(--c-white);
+  border-radius: var(--border-radius-sm);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.social-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow);
+}
+
+.social-btn.kakao {
+  border-color: #fee500;
+  color: #3c1e1e;
+}
+
+.social-btn.kakao:hover {
+  background: #fee500;
+}
+
+.social-btn.naver {
+  border-color: #03c75a;
+  color: #03c75a;
+}
+
+.social-btn.naver:hover {
+  background: #03c75a;
+  color: var(--c-white);
+}
+
+.social-btn.google {
+  border-color: #4285f4;
+  color: #4285f4;
+}
+
+.social-btn.google:hover {
+  background: #4285f4;
+  color: var(--c-white);
+}
+
+.signup-link {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--c-muted);
+  font-weight: 600;
+}
+
+.signup-link a {
+  color: var(--c-primary);
+  font-weight: 700;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .login-page {
+    padding: 1rem 0.5rem;
+  }
+  
+  .login-card {
+    border-radius: var(--border-radius-sm);
+  }
+  
+  .login-header {
+    padding: 1.5rem 1.5rem 1rem;
+  }
+  
+  .back-button {
+    top: 1rem;
+    left: 1rem;
+  }
+  
+  .login-logo img {
+    height: 50px;
+  }
+  
+  .login-header h1 {
+    font-size: 1.6rem;
+  }
+  
+  .login-form {
+    padding: 1.5rem;
+  }
+  
+  .form-options {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+
+/* Focus states for accessibility */
+.back-button:focus,
+.forgot-link:focus,
+.signup-link a:focus {
+  outline: 3px solid var(--c-primary);
+  outline-offset: 2px;
+}
+
+/* Loading state for login button */
+.login-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.login-button:disabled:hover {
+  transform: none;
+  box-shadow: var(--shadow);
+}

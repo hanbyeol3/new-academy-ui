@@ -23,7 +23,7 @@
 .logo {
   flex: 1;
   line-height: 1.2;
-  max-width: 200px;
+  max-width: 300px;
   transition: var(--transition);
 }
 
@@ -33,7 +33,7 @@
 }
 
 .logo img {
-  height: 195px;
+  /*height: 195px;*/
   width: auto;
   object-fit: contain;
 }

@@ -181,7 +181,7 @@
 
 .notice-item {
   display: grid;
-  grid-template-columns: 80px 1fr 120px 120px 80px;
+  /*grid-template-columns: 80px 1fr 120px 120px 80px;*/
   gap: 1rem;
   padding: 1.2rem 1.5rem;
   border-bottom: 1px solid var(--c-line);
@@ -230,7 +230,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   flex: 1;
-  min-width: 0;
+  /*min-width: 0;*/
 }
 
 .notice-badge {
@@ -369,7 +369,7 @@
 }
 
 .notice-content {
-  padding: 2.5rem;
+  /*padding: 2.5rem;*/
   line-height: 1.8;
   font-size: 1rem;
 }
@@ -413,7 +413,7 @@
   .notice-item {
     grid-template-columns: 60px 1fr 100px 100px 70px;
     gap: 0.8rem;
-    padding: 1rem 1.2rem;
+      padding: 0.2rem 1.5rem;
   }
   
   .notice-filters {
