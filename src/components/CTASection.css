@@ -1,0 +1,313 @@
+.cta-section {
+  position: relative;
+  width: var(--container);
+  margin: -3rem auto 0;
+  padding: 0 1rem;
+  z-index: 10;
+  display: none;
+}
+
+/* Show on mobile/tablet only */
+@media (max-width: 1024px) {
+  .cta-section {
+    display: block;
+  }
+}
+
+.cta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cta-card {
+  background: var(--c-white);
+  border: 1px solid var(--c-line);
+  border-radius: var(--border-radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  opacity: 0;
+  animation: slideUpFade 0.6s ease-out forwards;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cta-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--c-primary) 0%, var(--c-accent) 100%);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -2;
+}
+
+.cta-card.accent::before {
+  background: linear-gradient(135deg, var(--c-accent) 0%, var(--c-primary) 100%);
+}
+
+.cta-card::after {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: var(--c-white);
+  border-radius: calc(var(--border-radius) - 2px);
+  z-index: -1;
+  transition: var(--transition);
+}
+
+.cta-card:hover::before {
+  opacity: 1;
+}
+
+.cta-card:hover::after {
+  opacity: 0.95;
+}
+
+.cta-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 20px 40px rgba(44, 62, 80, 0.2);
+  color: var(--c-white);
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: block;
+  transition: var(--transition);
+  position: relative;
+  z-index: 2;
+}
+
+.cta-card:hover .card-icon {
+  transform: scale(1.2) rotate(5deg);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  margin-bottom: 1.5rem;
+}
+
+.card-title {
+  text-align: center;
+  color: var(--c-text);
+  line-height: 1.2;
+  transition: var(--transition);
+}
+
+.cta-card:hover .card-title {
+  color: var(--c-white);
+  transform: translateY(-2px);
+}
+
+.title-main {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.title-sub {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-top: 2px;
+  opacity: 0.9;
+}
+
+.card-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  opacity: 0.7;
+  transition: var(--transition);
+  position: relative;
+  z-index: 2;
+}
+
+.cta-card:hover .card-action {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+.card-action svg {
+  transition: var(--transition);
+}
+
+.cta-card:hover .card-action svg {
+  transform: translateX(4px);
+}
+
+.card-bg-icon {
+  position: absolute;
+  font-size: 6rem;
+  opacity: 0.03;
+  right: -1rem;
+  bottom: -1rem;
+  z-index: 0;
+  transition: var(--transition);
+}
+
+.cta-card:hover .card-bg-icon {
+  opacity: 0.08;
+  transform: scale(1.1) rotate(-10deg);
+}
+
+/* Interactive hover effects */
+.cta-card {
+  --hover-scale: 1.02;
+}
+
+.cta-card:active {
+  transform: translateY(-4px) scale(0.98);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .cta-section {
+    margin-top: -2rem;
+  }
+  
+  .cta-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .cta-card {
+    padding: 1.2rem 1rem;
+  }
+  
+  .card-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  
+  .title-main {
+    font-size: 0.75rem;
+  }
+  
+  .title-sub {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .cta-section {
+    margin-top: -1.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .cta-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 0.8rem;
+  }
+  
+  .cta-card {
+    padding: 1rem 0.5rem;
+  }
+  
+  .card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  
+  .title-main {
+    font-size: 0.65rem;
+    line-height: 1.1;
+  }
+  
+  .title-sub {
+    font-size: 0.55rem;
+  }
+  
+  .card-action {
+    font-size: 0.7rem;
+  }
+  
+  .card-bg-icon {
+    font-size: 3rem;
+    right: -0.5rem;
+    bottom: -0.5rem;
+  }
+}
+
+/* Special animations for different cards */
+.cta-card:nth-child(1) { animation-delay: 0ms; }
+.cta-card:nth-child(2) { animation-delay: 100ms; }
+.cta-card:nth-child(3) { animation-delay: 200ms; }
+.cta-card:nth-child(4) { animation-delay: 300ms; }
+.cta-card:nth-child(5) { animation-delay: 400ms; }
+.cta-card:nth-child(6) { animation-delay: 500ms; }
+
+/* Pulse animation for important cards */
+.cta-card:nth-child(4),
+.cta-card:nth-child(5) {
+  position: relative;
+}
+
+.cta-card:nth-child(4)::before,
+.cta-card:nth-child(5)::before {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.05;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .cta-card {
+    animation: none;
+    opacity: 1;
+  }
+  
+  .cta-card:hover {
+    transform: none;
+  }
+  
+  .card-bg-icon {
+    display: none;
+  }
+}
+
+/* Focus states for keyboard navigation */
+.cta-card:focus {
+  outline: 3px solid var(--c-primary);
+  outline-offset: 2px;
+}
+
+.cta-card:focus-visible {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
