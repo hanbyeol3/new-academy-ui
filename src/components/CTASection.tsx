@@ -7,42 +7,42 @@ const CTASection = () => {
       title: "중등부 모집안내",
       subtitle: "",
       icon: "🎓",
-      path: "/special/military",
+      path: "/middle/admission",
       color: "primary",
     },
     {
       title: "고등부 단과 안내",
       subtitle: "",
       icon: "📖",
-      path: "/special/winter",
+      path: "/high/admission",
       color: "accent",
     },
     {
       title: "독학재수반 안내",
       subtitle: "",
       icon: "📚",
-      path: "/special/csat",
+      path: "/selfstudy/admission",
       color: "primary",
     },
     {
       title: "설명회 접수",
       subtitle: "",
       icon: "📋",
-      path: "/story/achievement",
+      path: "/apply/seminar",
       color: "accent",
     },
     {
       title: "온라인 원서 접수",
       subtitle: "",
       icon: "💻",
-      path: "/story/improvement",
+      path: "/apply/online",
       color: "primary",
     },
     {
       title: "강사진 소개",
       subtitle: "",
       icon: "👨‍🏫",
-      path: "/special/art",
+      path: "/about/teachers",
       color: "accent",
     },
   ];
@@ -56,6 +56,7 @@ const CTASection = () => {
             to={card.path}
             className={`cta-card ${card.color}`}
             style={{ animationDelay: `${index * 100}ms` }}
+            aria-label={`${card.title} 바로가기`}
           >
             <div className="card-icon">{card.icon}</div>
             <div className="card-content">
@@ -68,7 +69,13 @@ const CTASection = () => {
             </div>
             <div className="card-action">
               <span>자세히 보기</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
                 <path
                   d="M9 18L15 12L9 6"
                   stroke="currentColor"
