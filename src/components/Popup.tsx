@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import './Popup.css';
 
-interface PopupProps {
+interface DetailPopupProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const Popup = ({ isOpen, onClose }: PopupProps) => {
+const DetailPopup = ({ isOpen, onClose }: DetailPopupProps) => {
   const [dontShowAgain, setDontShowAgain] = useState(false);
 
   const handleClose = () => {
@@ -56,12 +56,6 @@ const Popup = ({ isOpen, onClose }: PopupProps) => {
             <p>꿈을 향한 첫 걸음을 함께 시작하세요!</p>
           </div>
           
-          <div className="popup-image">
-            <img 
-              src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=800&auto=format&fit=crop" 
-              alt="새학기 모집 이벤트"
-            />
-          </div>
           
           <div className="popup-body">
             <div className="highlight-box">
@@ -106,4 +100,4 @@ const Popup = ({ isOpen, onClose }: PopupProps) => {
   );
 };
 
-export default Popup;
+export default DetailPopup;

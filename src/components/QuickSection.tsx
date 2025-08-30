@@ -22,6 +22,11 @@ const QuickSection = () => {
       title: "2025년 여름학기 특강 안내",
       date: "2025-07-10",
       isNew: false
+    },
+    {
+      title: "8월 모의고사 일정 안내",
+      date: "2025-07-08",
+      isNew: false
     }
   ];
 

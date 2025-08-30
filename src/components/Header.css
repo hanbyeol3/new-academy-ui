@@ -29,7 +29,6 @@
 
 .logo:hover {
   transform: scale(1.05);
-  filter: drop-shadow(0 4px 12px rgba(44, 62, 80, 0.15));
 }
 
 .logo img {
@@ -130,7 +129,6 @@
 
 .nav > ul > li:hover .nav-title {
   color: var(--c-primary);
-  background: linear-gradient(135deg, rgba(44, 62, 80, 0.05) 0%, rgba(52, 73, 94, 0.05) 100%);
   transform: translateY(-1px);
 }
 

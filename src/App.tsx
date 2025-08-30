@@ -8,13 +8,15 @@ import QuickSection from './components/QuickSection';
 import Footer from './components/Footer';
 import MobileDrawer from './components/MobileDrawer';
 import Notice from './components/Notice';
-import Popup from './components/Popup';
+import DetailPopup from './components/Popup';
+import ImagePopup from './components/ImagePopup';
 import Login from './components/Login';
 import Signup from './components/Signup';
 
 function App() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isImagePopupOpen, setIsImagePopupOpen] = useState(false);
+  const [isDetailPopupOpen, setIsDetailPopupOpen] = useState(false);
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
@@ -49,18 +51,35 @@ function App() {
   useEffect(() => {
     // 팝업 표시 로직
     const checkPopup = () => {
-      const popupHidden = localStorage.getItem('popupHidden');
+      const imagePopupHidden = localStorage.getItem('imagePopupHidden');
+      const detailPopupHidden = localStorage.getItem('popupHidden');
       const currentTime = new Date().getTime();
       
-      if (!popupHidden || currentTime > parseInt(popupHidden)) {
+      // 이미지 팝업 먼저 체크
+      if (!imagePopupHidden || currentTime > parseInt(imagePopupHidden)) {
         setTimeout(() => {
-          setIsPopupOpen(true);
-        }, 2000); // 2초 후 팝업 표시
+          setIsImagePopupOpen(true);
+        }, 2000); // 2초 후 이미지 팝업 표시
       }
     };
 
     checkPopup();
   }, []);
+
+  // 이미지 팝업이 닫힐 때 상세 팝업을 띄우는 로직
+  const handleImagePopupClose = () => {
+    setIsImagePopupOpen(false);
+    
+    // 이미지 팝업이 24시간 동안 숨겨져 있지 않다면 상세 팝업도 표시
+    const detailPopupHidden = localStorage.getItem('popupHidden');
+    const currentTime = new Date().getTime();
+    
+    if (!detailPopupHidden || currentTime > parseInt(detailPopupHidden)) {
+      setTimeout(() => {
+        setIsDetailPopupOpen(true);
+      }, 500); // 0.5초 후 상세 팝업 표시
+    }
+  };
 
   return (
     <Router>
@@ -97,9 +116,14 @@ function App() {
 
         <Footer />
         
-        <Popup 
-          isOpen={isPopupOpen} 
-          onClose={() => setIsPopupOpen(false)} 
+        <ImagePopup 
+          isOpen={isImagePopupOpen} 
+          onClose={handleImagePopupClose} 
+        />
+        
+        <DetailPopup 
+          isOpen={isDetailPopupOpen} 
+          onClose={() => setIsDetailPopupOpen(false)} 
         />
       </div>
     </Router>

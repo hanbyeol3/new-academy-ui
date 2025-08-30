@@ -123,19 +123,19 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 1.2rem 0;
-  gap: 1.5rem;
+  padding: 0.8rem 0;
+  gap: 1rem;
 }
 
 .notice-title {
   font-weight: 700;
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: 0.95rem;
+  line-height: 1.4;
   flex: 1;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  overflow: visible;
+  overflow: hidden;
   color: var(--c-text);
   word-break: keep-all;
   overflow-wrap: break-word;
